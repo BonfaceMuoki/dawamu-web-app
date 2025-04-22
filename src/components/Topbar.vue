@@ -28,24 +28,21 @@
         class="absolute right-0 z-50 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600"
       >
         <div class="px-4 py-3 text-sm text-gray-900 dark:text-white">
-          <div>Bonnie Green</div>
-          <div class="font-medium truncate">name@flowbite.com</div>
+          <div>{{ `${auth?.user?.first_name}  ${auth?.user?.middle_name}` }}</div>
+          <div class="font-medium truncate">{{ auth?.role }}</div>
         </div>
         <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownUserAvatarButton">
           <li>
-            <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
+           <router-link to="/dashboard" class="block px-4 py-2 rounded" >Dashboard</router-link>
           </li>
           <li>
-            <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a>
-          </li>
-          <li>
-            <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</a>
+           <router-link to="/dashboard" class="block px-4 py-2 rounded" >Settings</router-link>
           </li>
         </ul>
         <div class="py-2">
-          <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
-            Sign out
-          </a>
+        <a href="#" @click.prevent="handleLogout" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
+  Sign out
+</a>
         </div>
       </div>
     </div>
@@ -54,6 +51,20 @@
 <script setup>
 import { onMounted } from 'vue'
 import { initDropdowns } from 'flowbite'
+import {authStore} from '../store/authStore'
+
+import {useRouter} from 'vue-router'
+import {logOutUser} from '../services/authService'
+const router = useRouter();
+// const route = useRoute();
+const auth = authStore();
+
+
+const handleLogout = async ()=> {
+  await logOutUser()
+  auth.logout()
+  router.push("/auth/login")
+}
 onMounted(() => {
   initDropdowns()
 })

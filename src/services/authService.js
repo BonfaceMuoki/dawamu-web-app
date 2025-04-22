@@ -1,14 +1,14 @@
 import api from "../api"
 const loginUser = async(credentials) => {
     try{
-       const response = api.post('auth/login', credentials);
+       const response = api.post('/auth/login', credentials);
        return response;
     }catch(error){
       throw error;
     }
      
 }
-const logoutUser = async () => {
+const logOutUser = async () => {
     try {
         const response = await api.post('auth/logout');
         return response.data; 
@@ -18,4 +18,4 @@ const logoutUser = async () => {
 };
 
 
-export {loginUser,logoutUser}
+export {loginUser,logOutUser}

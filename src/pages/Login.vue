@@ -2,6 +2,7 @@
  <div class="h-screen  p-15 flex flex-col justify-center items-center ">
   <div class="p-5 uppercase">
   Login &nbsp;&nbsp; To &nbsp;Access   &nbsp;&nbsp;Your   &nbsp;&nbsp;Account
+ 
   </div>
   <form @submit.prevent="handleLogin" class="w-full" >
     <div class="card w-full p-3 min-h-[400px] flex flex-col justify-center bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
@@ -31,7 +32,7 @@
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { loginUser } from '../services/authService'
-import { authStore } from '../store/authStore' // your store export
+import { authStore } from '../store/authStore'
 
 const email = ref('')
 const password = ref('')
@@ -63,9 +64,12 @@ const handleLogin = async () => {
     store.login({
       user: res.data.user,
       token: res.data.token,
+      role:res.data.role,
+      permissions:res.data.permissions
     })
     router.push('/')
   } catch (error) {
+    console.log(error);
     alert('Login failed')
   }
 }

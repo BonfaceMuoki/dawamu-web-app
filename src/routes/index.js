@@ -6,7 +6,7 @@ import Dashboard from '../pages/Dashboard.vue'
 import DashboardLayout from '../layouts/DashboardLayout.vue'
 import AuthLayout from '../layouts/AuthLayout.vue'
 import { authStore } from '../store/authStore'
-import { useRouter } from 'vue-router'
+
 const routes = [
   {
     path: '/',
@@ -43,7 +43,11 @@ router.beforeEach((to, from, next) => {
   const auth = authStore();
   if (to.meta.isProtected && !auth.token) {
     next('/auth/login');
-  } else {
+  } 
+  else if (to.path === '/auth/login' && auth.token) {
+    next('/dashboard');
+  } 
+  else {
     next();
   }
 });

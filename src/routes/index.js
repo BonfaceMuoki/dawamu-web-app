@@ -6,20 +6,34 @@ import Dashboard from '../pages/Dashboard.vue'
 import DashboardLayout from '../layouts/DashboardLayout.vue'
 import AuthLayout from '../layouts/AuthLayout.vue'
 import { authStore } from '../store/authStore'
+import Classes from '../pages/Classes.vue'
+import NoticeBoard from '../pages/NoticeBoard.vue'
+import Exams from '../pages/Exams.vue'
 
 const routes = [
   {
     path: '/',
     component: DashboardLayout,
-    children: [
+    children: [      
       {
-        path: '',
-        redirect: '/dashboard'
-      },
-      {
-        path: 'dashboard',
+        path: '/dashboard',
         name: 'Dashboard',
         component: Dashboard,
+        meta:{isProtected:true}
+      },
+      {
+        path:"/classes",
+        component:Classes,
+        meta:{isProtected:true}
+      },
+      {
+        path:"/notice-board",
+        component:NoticeBoard,
+        meta:{isProtected:true}
+      },
+      {
+        path:"/exams",
+        component:Exams,
         meta:{isProtected:true}
       }
     ]

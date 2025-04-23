@@ -25,13 +25,16 @@
         <p class="font-normal text-gray-700 text-lg">Teachers: 72 / 75</p>
       </div>
     </div>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-4">
-   
-  
-  </div>
+
   </template>
   
   <script setup>
- 
-  </script>
+import { onMounted, ref } from 'vue';
+import Datatable from '../components/Datatable.vue';
+import api from '../api';
+
+onMounted(() => {
+});
+</script>
+
   

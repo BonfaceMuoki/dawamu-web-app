@@ -16,7 +16,7 @@
         <i class="fas fa-graduation-cap"></i> Classes
       </router-link>
 
-      <router-link to="/notices" class="block px-4 py-2 rounded" :class="navLinkClass('/notices')">
+      <router-link to="/notice-board" class="block px-4 py-2 rounded" :class="navLinkClass('/notices')">
         <i class="fas fa-bell"></i> Notice Board
       </router-link>
 

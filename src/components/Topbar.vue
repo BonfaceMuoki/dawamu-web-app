@@ -61,7 +61,7 @@ const auth = authStore();
 
 
 const handleLogout = async ()=> {
-  await logOutUser()
+  // await logOutUser()
   auth.logout()
   router.push("/auth/login")
 }

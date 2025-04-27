@@ -50,7 +50,7 @@ function changePerPage(newPerPage) {
             <thead>
               
                 <tr class="bg-white dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
-                    <th colspan="5" class="p-4">
+                    <th :colspan="columns.length+1" class="p-4">
                         <div class="flex flex-col sm:flex-row justify-between gap-4">
                         
                             <div class="relative w-full max-w-sm">

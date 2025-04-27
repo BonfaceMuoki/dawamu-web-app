@@ -9,6 +9,8 @@ import { authStore } from '../store/authStore'
 import Classes from '../pages/Classes.vue'
 import NoticeBoard from '../pages/NoticeBoard.vue'
 import Exams from '../pages/Exams.vue'
+import ClassDetails from '../pages/ClassDetails.vue'
+import ExamDetails from '../components/ExamDetails.vue'
 
 const routes = [
   {
@@ -26,6 +28,16 @@ const routes = [
         component:Classes,
         meta:{isProtected:true}
       },
+      {
+        path:"/class-details/:id",
+        component:ClassDetails,
+        meta:{isProtected:true}
+      },
+      {
+        path:"/exam-details/:classId/:examId",
+        component:ExamDetails,
+        meta:{isProtected:true}
+      },      
       {
         path:"/notice-board",
         component:NoticeBoard,

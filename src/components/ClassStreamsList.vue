@@ -3,6 +3,9 @@ import { ref, onMounted } from 'vue';
 import Datatable from '../components/Datatable.vue';
 import api from '../api';
 import { useRouter } from 'vue-router';
+const props = defineProps({
+    classId: { type: Number, default: () => 0 }
+});
 
 const apiData = ref([]);
 const totalPages = ref(0);
@@ -11,17 +14,17 @@ const itemsPerPage = ref(3);
 const search = ref('');
 
 const columns = ref([
-  { label: 'Class Name', key: 'class_name' },
-  { label: 'Class Code', key: 'class_code' },
-  { label: 'Class Description', key: 'class_description' },
+  { label: 'Stream Name', key: 'stream_name' },
+  { label: 'Stream Code', key: 'stream_code' },
+  { label: 'Stream Description', key: 'stream_description' },
   { label: 'Created At', key: 'created_at' }
 ]);
 const navigate = useRouter();
 const loadClasses = async () => {
   try {
-    const response = await api.get(`/utilities/get-classes?page=${currentPage.value}&perPage=${itemsPerPage.value}&search=${search.value}`);
-    apiData.value = response?.data?.classes?.data || [];
-    totalPages.value = Math.ceil(response?.data?.classes?.total / response?.data?.classes?.per_page);
+    const response = await api.get(`/utilities/get-streams-by-class/${props.classId}?page=${currentPage.value}&perPage=${itemsPerPage.value}&search=${search.value}`);
+    apiData.value = response?.data?.streams?.data || [];
+    totalPages.value = Math.ceil(response?.data?.streams?.total / response?.data?.streams?.per_page);
   } catch (error) {
     console.error("Error loading classes:", error);
   }

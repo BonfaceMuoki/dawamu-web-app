@@ -11,6 +11,7 @@ import NoticeBoard from '../pages/NoticeBoard.vue'
 import Exams from '../pages/Exams.vue'
 import ClassDetails from '../pages/ClassDetails.vue'
 import ExamDetails from '../components/ExamDetails.vue'
+import ExamSettings from '../components/ExamSettings.vue'
 
 const routes = [
   {
@@ -44,8 +45,8 @@ const routes = [
         meta:{isProtected:true}
       },
       {
-        path:"/exams",
-        component:Exams,
+        path:"/set-exam",
+        component:ExamSettings,
         meta:{isProtected:true}
       }
     ]

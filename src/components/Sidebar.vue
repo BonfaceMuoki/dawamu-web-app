@@ -20,7 +20,7 @@
         <i class="fas fa-bell"></i> Notice Board
       </router-link>
 
-      <router-link to="/exams" class="block px-4 py-2 rounded" :class="navLinkClass('/exams')">
+      <router-link to="/set-exam" class="block px-4 py-2 rounded" :class="navLinkClass('/exams')">
         <i class="fas fa-pen-to-square"></i> Exams
       </router-link>
 

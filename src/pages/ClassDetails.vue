@@ -36,38 +36,61 @@ async function loadClassDetails() {
 
 <template>
     <div class="overflow-x-auto shadow-md sm:rounded-lg p-10 w-full">
+<!-- Tabs -->
+<div class="mb-4">
+  <ul
+    class="flex flex-wrap w-full text-sm font-medium text-center bg-slate-100 dark:bg-slate-800 rounded-t-lg"
+    role="tablist">
+    
+    <li class="flex-1" role="presentation">
+      <button @click="activateTab('summary')"
+        class="w-full p-4 border-b-2 rounded-t-lg transition duration-200"
+        :class="activeTab === 'summary'
+          ? 'border-indigo-600 bg-white dark:bg-slate-700 text-indigo-600'
+          : 'bg-slate-200 dark:bg-slate-700 border-gray-300 text-gray-800 dark:text-gray-200 hover:bg-slate-300 dark:hover:bg-slate-600'"
+        type="button">Summary</button>
+    </li>
 
-        <!-- Tabs -->
-        <div class="mb-4 border-b border-gray-200 dark:border-gray-700">
-            <ul class="flex flex-wrap w-full text-sm font-medium text-center border-b border-gray-200 dark:border-gray-700"
-                role="tablist">
-                <li class="flex-1" role="presentation">
-                    <button @click="activateTab('summary')" class="w-full p-4 border-b-2 rounded-t-lg"
-                        :class="{ 'border-blue-500 text-blue-600': activeTab === 'summary' }"
-                        type="button">Summary</button>
-                </li>
-                <li class="flex-1" role="presentation">
-                    <button @click="activateTab('streams')" class="w-full p-4 border-b-2 rounded-t-lg"
-                        :class="{ 'border-blue-500 text-blue-600': activeTab === 'streams' }"
-                        type="button">Streams</button>
-                </li>
-                <li class="flex-1" role="presentation">
-                    <button @click="activateTab('exams')" class="w-full p-4 border-b-2 rounded-t-lg"
-                        :class="{ 'border-blue-500 text-blue-600': activeTab === 'exams' }" type="button">Exams</button>
-                </li>
-                <li class="flex-1" role="presentation">
-                    <button @click="activateTab('teachers')" class="w-full p-4 border-b-2 rounded-t-lg"
-                        :class="{ 'border-blue-500 text-blue-600': activeTab === 'teachers' }"
-                        type="button">Teachers</button>
-                </li>
-                <li class="flex-1" role="presentation">
-                    <button @click="activateTab('subjects')" class="w-full p-4 border-b-2 rounded-t-lg"
-                        :class="{ 'border-blue-500 text-blue-600': activeTab === 'subjects' }"
-                        type="button">Subjects</button>
-                </li>
-            </ul>
+    <li class="flex-1" role="presentation">
+      <button @click="activateTab('streams')"
+        class="w-full p-4 border-b-2 rounded-t-lg transition duration-200"
+        :class="activeTab === 'streams'
+          ? 'border-indigo-600 bg-white dark:bg-slate-700 text-indigo-600'
+          : 'bg-slate-200 dark:bg-slate-700 border-gray-300 text-gray-800 dark:text-gray-200 hover:bg-slate-300 dark:hover:bg-slate-600'"
+        type="button">Streams</button>
+    </li>
 
-        </div>
+    <li class="flex-1" role="presentation">
+      <button @click="activateTab('exams')"
+        class="w-full p-4 border-b-2 rounded-t-lg transition duration-200"
+        :class="activeTab === 'exams'
+          ? 'border-indigo-600 bg-white dark:bg-slate-700 text-indigo-600'
+          : 'bg-slate-200 dark:bg-slate-700 border-gray-300 text-gray-800 dark:text-gray-200 hover:bg-slate-300 dark:hover:bg-slate-600'"
+        type="button">Exams</button>
+    </li>
+
+    <li class="flex-1" role="presentation">
+      <button @click="activateTab('teachers')"
+        class="w-full p-4 border-b-2 rounded-t-lg transition duration-200"
+        :class="activeTab === 'teachers'
+          ? 'border-indigo-600 bg-white dark:bg-slate-700 text-indigo-600'
+          : 'bg-slate-200 dark:bg-slate-700 border-gray-300 text-gray-800 dark:text-gray-200 hover:bg-slate-300 dark:hover:bg-slate-600'"
+        type="button">Teachers</button>
+    </li>
+
+    <li class="flex-1" role="presentation">
+      <button @click="activateTab('subjects')"
+        class="w-full p-4 border-b-2 rounded-t-lg transition duration-200"
+        :class="activeTab === 'subjects'
+          ? 'border-indigo-600 bg-white dark:bg-slate-700 text-indigo-600'
+          : 'bg-slate-200 dark:bg-slate-700 border-gray-300 text-gray-800 dark:text-gray-200 hover:bg-slate-300 dark:hover:bg-slate-600'"
+        type="button">Subjects</button>
+    </li>
+
+  </ul>
+</div>
+
+
 
         <!-- Tab content -->
         <div>

@@ -13,10 +13,13 @@
     "@tailwindcss/vite": "^4.1.4",
     "axios": "^1.8.4",
     "flowbite": "^3.1.2",
+    "lodash": "^4.17.21",
+    "lucide-vue-next": "^0.507.0",
     "pinia": "^3.0.2",
     "pinia-plugin-persistedstate": "^4.2.0",
     "simple-datatables": "^10.0.0",
     "tailwindcss": "^4.1.4",
+    "tom-select": "^2.4.3",
     "vue": "^3.5.13",
     "vue-router": "^4.5.0"
   },
